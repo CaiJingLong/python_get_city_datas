@@ -1,10 +1,16 @@
 # 获取省市数据列表
 
-代码使用说明
+## 代码使用说明
 
 git clone https://github.com/CaiJingLong/python_get_city_datas.git city
 
 python3 city/dump_data.py
+
+## 思路可以看我的[blog](https://www.kikt.top/posts/python/get_city_datas/)
+
+[blog](https://www.kikt.top/posts/python/get_city_datas/)
+
+讲述了一些网页布局的分析过程
 
 ## 文件说明
 
