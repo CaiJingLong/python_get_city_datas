@@ -2,6 +2,8 @@ import json
 from requests_html import HTMLSession
 import requests_html
 
+from city.get_county import get_county
+
 session = HTMLSession()
 
 
@@ -57,8 +59,8 @@ class Province(Entity):
             else:
                 city.name = text
 
-        for city in self.cityList:
-            city.fetch_county_list()
+        # for city in self.cityList:
+        #     city.fetch_county_list()
 
     def to_json(self) -> str:
         pass
@@ -74,34 +76,19 @@ class City(Entity):
     def fetch_county_list(self):
         print("%s 开始" % self.name)
         url = "%s%s" % (Entity.baseUrl, self.link)
-        r = session.get(url)
-        r.encoding = "gbk"
-        h: requests_html.HTML = r.html
-        li: list[requests_html.Element] = h.find("a")
-        for a in li:
-            text = a.text
-            if text.__contains__("京ICP"):
-                continue
-            href_ = a.attrs["href"]
-            county = County()
-            county.link = href_
-            county.province = self
-            # print(text, href_)
+        county_tuple_list = get_county(url)
 
-            try:
-                index = self.countyList.index(county)
-                county = self.countyList[index]
-            except ValueError:
-                self.countyList.append(county)
+        for county_tuple in county_tuple_list:
+            c = County()
+            c.name = county_tuple[0]
+            c.no = county_tuple[1]
+            c.city = self
+            self.countyList.append(c)
 
-            if text.isnumeric():
-                county.no = text
-            else:
-                county.name = text
-
-        for county in self.countyList:
-            # print(county.__str__())
-            pass
+        if self.province.name.__contains__("北京"):
+            print(self.countyList.__len__())
+            for c in self.countyList:
+                print(c.name)
 
         print("%s 结束" % self.name)
 

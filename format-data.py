@@ -1,11 +1,14 @@
 import json
 
-f = open("city-version-2.json", 'r')
+f = open("./data/city-version-3.json", 'r')
 
 dic = json.load(f)
 version_ = dic["version"]
+print("version = %s" % version_)
 ds = json.dumps(dic, indent="  ")
 
-f = open("city-version-%s-pretty.json" % version_, 'w')
+f = open("./data/city-version-%s-pretty.json" % version_, 'w')
 
 f.write(ds)
+
+print("convert success")
