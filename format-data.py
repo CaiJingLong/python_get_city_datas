@@ -1,13 +1,16 @@
 import json
 
-f = open("./data/city-version-3.json", 'r')
+from city.version_util import get_version
+
+version = get_version()
+
+f = open("./data/city-version-%s.json" % version, 'r')
 
 dic = json.load(f)
-version_ = dic["version"]
-print("version = %s" % version_)
+print("version = %s" % version)
 ds = json.dumps(dic, indent="  ")
 
-f = open("./data/city-version-%s-pretty.json" % version_, 'w')
+f = open("./data/city-version-%s-pretty.json" % version, 'w')
 
 f.write(ds)
 

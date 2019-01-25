@@ -3,9 +3,9 @@ import json
 from city.city_get import Province, County, City, provinceList
 import datetime
 
-# for p in provinceList:
-#     pr: Province = p
-version = 3
+from city.version_util import get_version
+
+version = get_version()
 
 di = dict()
 di["version"] = version
