@@ -22,9 +22,9 @@ class Entity:
 
 
 class Province(Entity):
-    cityList = []
 
     def __init__(self) -> None:
+        super().__init__()
         self.cityList = []
 
     def __str__(self) -> str:
@@ -66,9 +66,13 @@ class Province(Entity):
 
 class City(Entity):
     province: Province
-    countyList = []
+
+    def __init__(self) -> None:
+        super().__init__()
+        self.countyList = []
 
     def fetch_county_list(self):
+        print("%s 开始" % self.name)
         url = "%s%s" % (Entity.baseUrl, self.link)
         r = session.get(url)
         r.encoding = "gbk"
@@ -98,6 +102,8 @@ class City(Entity):
         for county in self.countyList:
             # print(county.__str__())
             pass
+
+        print("%s 结束" % self.name)
 
     pass
 
@@ -130,7 +136,6 @@ fetch_province_list()
 
 if __name__ == '__main__':
     for p in provinceList:
-        # 请求每个页面自己的city
-        p.fetch_city_list()
-
+        if p.name == "黑龙江省":
+            p.fetch_city_list()
 # session.close()

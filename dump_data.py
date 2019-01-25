@@ -5,9 +5,10 @@ import datetime
 
 # for p in provinceList:
 #     pr: Province = p
+version = 2
 
 di = dict()
-di["version"] = 1
+di["version"] = version
 now = datetime.datetime.now()
 date = datetime.datetime.strftime(now, "%Y-%m-%d %H:%M:%S")
 di["date"] = date
@@ -50,12 +51,13 @@ def make_city(city: City, city_obj: dict):
 
 
 for province in provinceList:
+    print("province = %s" % province.name)
     make_province(province)
 
 di["provinceList"] = proList
 
 s = json.dumps(di)
 
-f = open("%s.txt" % now.timestamp(), 'w')
+f = open("data/city-version-%s.json" % version, 'w')
 
 f.write(s)
