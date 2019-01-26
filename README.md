@@ -16,9 +16,13 @@ python3 city/dump_data.py
 
 city_get.py : 爬取数据的文件
 
+get_county.py: 获取第三级数据的优化版本
+
 dump_data.py: 将数据转为 json
 
-format-data.py: 美化数据并输出到文件
+format-data.py: 美化json数据并输出到文件
+
+convert_sqlite.py: 转化json为数据库
 
 ## 其他说明
 
