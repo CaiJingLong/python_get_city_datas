@@ -33,6 +33,7 @@ def make_province(p: Province):
         make_city(city, c_dict)
 
     p_dict["cityList"] = city_list
+    p_dict["no"] = p.link.rstrip(".html")
     proList.append(p_dict)
 
 
