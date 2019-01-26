@@ -6,6 +6,8 @@ git clone https://github.com/CaiJingLong/python_get_city_datas.git city
 
 python3 city/dump_data.py
 
+如果缺少python库, 自己用pip获取一下
+
 ## 思路可以看我的[blog](https://www.kikt.top/posts/python/get_city_datas/)
 
 [blog](https://www.kikt.top/posts/python/get_city_datas/)
