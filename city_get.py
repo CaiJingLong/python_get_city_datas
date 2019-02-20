@@ -104,7 +104,7 @@ provinceList = []
 
 
 def fetch_province_list():
-    response = session.get("http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2017/index.html")
+    response = session.get("http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2018/index.html")
     response.encoding = "gbk"
     html: requests_html.HTML = response.html
     # s = response.content.decode("gbk")
