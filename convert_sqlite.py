@@ -6,7 +6,7 @@ from city.version_util import get_version
 
 version = get_version()
 
-db_name = "./data/city_version-%s.sqlite" % version
+db_name = "./data/city-version-%s.sqlite" % version
 
 try:
     os.remove(db_name)

@@ -11,7 +11,7 @@ class Entity:
     name: str
     link: str
     no: str
-    baseUrl = "http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2017/"
+    baseUrl = "http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2018/"
 
     def __str__(self) -> str:
         return "name:%s,link=%s" % (self.name, self.link)
