@@ -8,6 +8,9 @@ python3 city/dump_data.py
 
 如果缺少python库, 自己用pip获取一下
 
+## 数据来源
+[国家统计局2018年](http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2018/)
+
 ## 思路可以看我的[blog](https://www.kikt.top/posts/python/get_city_datas/)
 
 [blog](https://www.kikt.top/posts/python/get_city_datas/)
